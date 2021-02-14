@@ -1,5 +1,5 @@
-var _HEIGHT = screen.height / 2,
-    _WIDTH = screen.width / 2;
+var _HEIGHT = 600,//screen.height,
+    _WIDTH = 800; //screen.width;
 
 var config = {
     type: Phaser.AUTO,
@@ -55,7 +55,7 @@ var audio;
 function create() {
     tileSprite = this.add.tileSprite(_WIDTH / 2, _HEIGHT / 2, _WIDTH, _HEIGHT, 'backgrd');
     platforms = this.physics.add.staticGroup();
-    platforms.create(_HEIGHT / 2, 460, 'ground').setScale(5).refreshBody();
+    platforms.create(_WIDTH / 2, 600, 'ground').setScale(13).refreshBody();
     button = this.add.sprite(_WIDTH / 2, _HEIGHT / 2, 'button').setInteractive();
     button.visible = !gameOver;
     player = this.physics.add.sprite(300, 300, 'elif');
@@ -160,7 +160,7 @@ function update() {
             player2.anims.play('jumpb');
         }
 
-        if (parseInt(engel.getChildren()[engel.getLength() - 1].x) < 400) {
+        if (parseInt(engel.getChildren()[engel.getLength() - 1].x) < 500) {
             var eng;
             if (getRand()) {
                 eng = engel.create(_WIDTH + 22, 230, 'bird').setScale(0.5);
@@ -195,7 +195,7 @@ function hitBomb() {
 
 function hitwe() {
     tileSprite = this.add.tileSprite(_WIDTH / 2, _HEIGHT / 2, _WIDTH, _HEIGHT, 'backgrd2');
-    platforms.create(_HEIGHT / 2, 520, 'ground').setScale(5).refreshBody();
+    // platforms.create(_HEIGHT / 2, 520, 'ground').setScale(5).refreshBody();
     this.physics.add.sprite(_WIDTH / 2, _HEIGHT / 2 + 60, 'love');
     this.physics.pause();
     audio.loop = false;
